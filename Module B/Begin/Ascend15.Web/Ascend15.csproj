@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2FAE5E49-696F-451D-9C04-E7391EF16543}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ascend15</RootNamespace>
+    <AssemblyName>Ascend15</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>true</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.30930.28736, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuthorizeNet.1.8.2\lib\AuthorizeNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.0.3\lib\net45\EPiServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ApplicationModules, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.0.3\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Business.Commerce, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\EPiServer.Business.Commerce.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Cms.Shell.UI, Version=9.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.2.0\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.Internal.Migration, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\EPiServer.Commerce.Internal.Migration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.Shell, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.UI.8.17.0\lib\net45\EPiServer.Commerce.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.Shell.ManagerIntegration, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.UI.ManagerIntegration.8.17.0\lib\net45\EPiServer.Commerce.Shell.ManagerIntegration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.UI, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.UI.8.17.0\lib\net45\EPiServer.Commerce.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Configuration, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.0.3\lib\net45\EPiServer.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.0.3\lib\net45\EPiServer.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data.Cache, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.0.3\lib\net45\EPiServer.Data.Cache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Enterprise, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.0.3\lib\net45\EPiServer.Enterprise.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Events, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.0.3\lib\net45\EPiServer.Events.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Framework, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.0.3\lib\net45\EPiServer.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ImageLibrary, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.0.3\lib\net45\EPiServer.ImageLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Licensing, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.0.3\lib\net45\EPiServer.Licensing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.LinkAnalyzer, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.0.3\lib\net45\EPiServer.LinkAnalyzer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Logging.Log4Net, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Logging.Log4Net.2.0.0\lib\net45\EPiServer.Logging.Log4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Packaging, Version=3.2.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Packaging.3.2.3\lib\net45\EPiServer.Packaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Packaging.CmdAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Packaging.3.2.3\lib\net45\EPiServer.Packaging.CmdAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Packaging.UI, Version=3.2.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Packaging.UI.3.2.3\lib\net45\EPiServer.Packaging.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ServiceApi, Version=1.6.0.46, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.ServiceApi.1.6.0\lib\net451\EPiServer.ServiceApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ServiceApi.Commerce, Version=1.6.0.46, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.ServiceApi.Commerce.1.6.0\lib\net451\EPiServer.ServiceApi.Commerce.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.0.3\lib\net45\EPiServer.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell.UI, Version=9.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.2.0\lib\net45\EPiServer.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.UI, Version=9.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.2.0\lib\net45\EPiServer.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Web.WebControls, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.0.3\lib\net45\EPiServer.Web.WebControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.XForms, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.0.3\lib\net45\EPiServer.XForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.9.1.8\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.BusinessFoundation, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.BusinessFoundation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.BusinessFoundation.Data, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.BusinessFoundation.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.Commerce, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.Commerce.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Marketing.Validators, Version=8.17.0.1004, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.Commerce.Marketing.Validators.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Plugins.Payment, Version=8.17.0.1004, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.Commerce.Plugins.Payment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Plugins.Shipping, Version=8.17.0.1004, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.Commerce.Plugins.Shipping.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Website, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.Commerce.Website.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Workflow, Version=8.17.0.1004, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.Commerce.Workflow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.DataProvider, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.DataProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.FileUploader, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.FileUploader.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.MetaDataPlus, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.MetaDataPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.Search, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.Search.Extensions, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.Search.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.Search.LuceneSearchProvider, Version=8.17.0.1004, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.Search.LuceneSearchProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.SqlDataProvider, Version=8.17.0.1004, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.SqlDataProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mediachase.WebConsoleLib, Version=8.17.0.1004, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\Mediachase.WebConsoleLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nsoftware.IBizPay, Version=4.1.3575.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.8.17.0\lib\net45\nsoftware.IBizPay.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.5.40416.9020, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Core.2.5.0\lib\net40-Client\NuGet.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.1.6.186, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap-signed.3.1.6.186\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.6.186, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap-signed.3.1.6.186\lib\net40\StructureMap.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.web-signed.3.1.6.186\lib\net40\StructureMap.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.3.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.1.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ItemGroup>
+    <Compile Include="Controllers\BasePageController.cs" />
+    <Compile Include="Controllers\CartPageController.cs" />
+    <Compile Include="Controllers\CatalogContentBaseController.cs" />
+    <Compile Include="Controllers\CatalogController.cs" />
+    <Compile Include="Controllers\CatalogNodeController.cs" />
+    <Compile Include="Controllers\CheckoutPageController.cs" />
+    <Compile Include="Controllers\ConfirmationPageController.cs" />
+    <Compile Include="Controllers\ShopEntryPageController.cs" />
+    <Compile Include="Controllers\StartPageController.cs" />
+    <Compile Include="Controllers\CatalogVariationController.cs" />
+    <Compile Include="Extensions\AssetContainerExtensions.cs" />
+    <Compile Include="Extensions\CartExtensions.cs" />
+    <Compile Include="Extensions\CatalogContentExtensions.cs" />
+    <Compile Include="Extensions\ContentReferenceExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\PageDataExtensions.cs" />
+    <Compile Include="Extensions\ProductContentExtensions.cs" />
+    <Compile Include="Extensions\VariationContentExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Bundling\BundleConfig.cs" />
+    <Compile Include="Infrastructure\DependencyInjection\StructureMapDependencyResolver.cs" />
+    <Compile Include="Infrastructure\Initialization\ConfigurableModule.cs" />
+    <Compile Include="Infrastructure\Initialization\RegisterRenderingStuff.cs" />
+    <Compile Include="Infrastructure\Initialization\RegisterCommerceModule.cs" />
+    <Compile Include="Models\Catalog\AwesomeNode.cs" />
+    <Compile Include="Models\Catalog\AwesomeProduct.cs" />
+    <Compile Include="Models\Catalog\AwesomeVariation.cs" />
+    <Compile Include="Models\Domain\NameAndLinkPair.cs" />
+    <Compile Include="Models\Media\Image.cs" />
+    <Compile Include="Models\Pages\CartPage.cs" />
+    <Compile Include="Models\Pages\CheckoutPage.cs" />
+    <Compile Include="Models\Pages\ConfirmationPage.cs" />
+    <Compile Include="Models\Pages\ShopEntryPage.cs" />
+    <Compile Include="Models\Pages\StartPage.cs" />
+    <Compile Include="Models\Pages\ViewPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\ViewModels\CartPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\CatalogNodeViewModel.cs" />
+    <Compile Include="Models\ViewModels\CatalogVariationViewModel.cs" />
+    <Compile Include="Models\ViewModels\CatalogViewModel.cs" />
+    <Compile Include="Models\ViewModels\CheckoutViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CartService.cs" />
+    <Compile Include="Services\ICartService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Frontend\lib\bootstrap-sass\assets\images\" />
+    <Folder Include="Models\Blocks\" />
+    <Folder Include="Static\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\ModuleB_Begin_Commerce.mdf" />
+    <Content Include="App_Data\ModuleB_Begin_Commerce_log.ldf">
+      <DependentUpon>ModuleB_Begin_Commerce.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\ModuleB_Begin_Cms.mdf" />
+    <Content Include="App_Data\ModuleB_Begin_Cms_log.ldf">
+      <DependentUpon>ModuleB_Begin_Cms.mdf</DependentUpon>
+    </Content>
+    <Content Include="Frontend\assets\catalogs\clothes\bags.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\children.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\clothes.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\hats.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\mens.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\shirts.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\shoes.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\socks.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\trousers.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\undershirts.png" />
+    <Content Include="Frontend\assets\catalogs\clothes\watches.png" />
+    <Content Include="Frontend\assets\catalogs\colors\blue.jpg" />
+    <Content Include="Frontend\assets\catalogs\colors\red.jpg" />
+    <Content Include="Frontend\assets\catalogs\colors\white.jpg" />
+    <Content Include="Frontend\assets\catalogs\cover-images\bicycles.png" />
+    <Content Include="Frontend\assets\catalogs\cover-images\fashion.png" />
+    <Content Include="Frontend\assets\catalogs\cover-images\wearables.png" />
+    <Content Include="Frontend\gulpfile.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap-sprockets.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap.min.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\affix.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\alert.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\button.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\carousel.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\collapse.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\dropdown.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\modal.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\popover.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\scrollspy.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\tab.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\tooltip.js" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\javascripts\bootstrap\transition.js" />
+    <Content Include="Frontend\lib\jquery\dist\jquery.js" />
+    <Content Include="Frontend\lib\jquery\dist\jquery.min.js" />
+    <Content Include="Frontend\lib\jquery\MIT-LICENSE.txt" />
+    <Content Include="Frontend\lib\jquery\src\ajax.js" />
+    <Content Include="Frontend\lib\jquery\src\ajax\jsonp.js" />
+    <Content Include="Frontend\lib\jquery\src\ajax\load.js" />
+    <Content Include="Frontend\lib\jquery\src\ajax\parseJSON.js" />
+    <Content Include="Frontend\lib\jquery\src\ajax\parseXML.js" />
+    <Content Include="Frontend\lib\jquery\src\ajax\script.js" />
+    <Content Include="Frontend\lib\jquery\src\ajax\var\nonce.js" />
+    <Content Include="Frontend\lib\jquery\src\ajax\var\rquery.js" />
+    <Content Include="Frontend\lib\jquery\src\ajax\xhr.js" />
+    <Content Include="Frontend\lib\jquery\src\attributes.js" />
+    <Content Include="Frontend\lib\jquery\src\attributes\attr.js" />
+    <Content Include="Frontend\lib\jquery\src\attributes\classes.js" />
+    <Content Include="Frontend\lib\jquery\src\attributes\prop.js" />
+    <Content Include="Frontend\lib\jquery\src\attributes\support.js" />
+    <Content Include="Frontend\lib\jquery\src\attributes\val.js" />
+    <Content Include="Frontend\lib\jquery\src\callbacks.js" />
+    <Content Include="Frontend\lib\jquery\src\core.js" />
+    <Content Include="Frontend\lib\jquery\src\core\access.js" />
+    <Content Include="Frontend\lib\jquery\src\core\init.js" />
+    <Content Include="Frontend\lib\jquery\src\core\parseHTML.js" />
+    <Content Include="Frontend\lib\jquery\src\core\ready.js" />
+    <Content Include="Frontend\lib\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="Frontend\lib\jquery\src\css.js" />
+    <Content Include="Frontend\lib\jquery\src\css\addGetHookIf.js" />
+    <Content Include="Frontend\lib\jquery\src\css\curCSS.js" />
+    <Content Include="Frontend\lib\jquery\src\css\defaultDisplay.js" />
+    <Content Include="Frontend\lib\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="Frontend\lib\jquery\src\css\support.js" />
+    <Content Include="Frontend\lib\jquery\src\css\swap.js" />
+    <Content Include="Frontend\lib\jquery\src\css\var\cssExpand.js" />
+    <Content Include="Frontend\lib\jquery\src\css\var\getStyles.js" />
+    <Content Include="Frontend\lib\jquery\src\css\var\isHidden.js" />
+    <Content Include="Frontend\lib\jquery\src\css\var\rmargin.js" />
+    <Content Include="Frontend\lib\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="Frontend\lib\jquery\src\data.js" />
+    <Content Include="Frontend\lib\jquery\src\data\accepts.js" />
+    <Content Include="Frontend\lib\jquery\src\data\Data.js" />
+    <Content Include="Frontend\lib\jquery\src\data\var\data_priv.js" />
+    <Content Include="Frontend\lib\jquery\src\data\var\data_user.js" />
+    <Content Include="Frontend\lib\jquery\src\deferred.js" />
+    <Content Include="Frontend\lib\jquery\src\deprecated.js" />
+    <Content Include="Frontend\lib\jquery\src\dimensions.js" />
+    <Content Include="Frontend\lib\jquery\src\effects.js" />
+    <Content Include="Frontend\lib\jquery\src\effects\animatedSelector.js" />
+    <Content Include="Frontend\lib\jquery\src\effects\Tween.js" />
+    <Content Include="Frontend\lib\jquery\src\event.js" />
+    <Content Include="Frontend\lib\jquery\src\event\ajax.js" />
+    <Content Include="Frontend\lib\jquery\src\event\alias.js" />
+    <Content Include="Frontend\lib\jquery\src\event\support.js" />
+    <Content Include="Frontend\lib\jquery\src\exports\amd.js" />
+    <Content Include="Frontend\lib\jquery\src\exports\global.js" />
+    <Content Include="Frontend\lib\jquery\src\intro.js" />
+    <Content Include="Frontend\lib\jquery\src\jquery.js" />
+    <Content Include="Frontend\lib\jquery\src\manipulation.js" />
+    <Content Include="Frontend\lib\jquery\src\manipulation\support.js" />
+    <Content Include="Frontend\lib\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="Frontend\lib\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="Frontend\lib\jquery\src\offset.js" />
+    <Content Include="Frontend\lib\jquery\src\outro.js" />
+    <Content Include="Frontend\lib\jquery\src\queue.js" />
+    <Content Include="Frontend\lib\jquery\src\queue\delay.js" />
+    <Content Include="Frontend\lib\jquery\src\selector-native.js" />
+    <Content Include="Frontend\lib\jquery\src\selector-sizzle.js" />
+    <Content Include="Frontend\lib\jquery\src\selector.js" />
+    <Content Include="Frontend\lib\jquery\src\serialize.js" />
+    <Content Include="Frontend\lib\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="Frontend\lib\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="Frontend\lib\jquery\src\traversing.js" />
+    <Content Include="Frontend\lib\jquery\src\traversing\findFilter.js" />
+    <Content Include="Frontend\lib\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="Frontend\lib\jquery\src\var\arr.js" />
+    <Content Include="Frontend\lib\jquery\src\var\class2type.js" />
+    <Content Include="Frontend\lib\jquery\src\var\concat.js" />
+    <Content Include="Frontend\lib\jquery\src\var\hasOwn.js" />
+    <Content Include="Frontend\lib\jquery\src\var\indexOf.js" />
+    <Content Include="Frontend\lib\jquery\src\var\pnum.js" />
+    <Content Include="Frontend\lib\jquery\src\var\push.js" />
+    <Content Include="Frontend\lib\jquery\src\var\rnotwhite.js" />
+    <Content Include="Frontend\lib\jquery\src\var\slice.js" />
+    <Content Include="Frontend\lib\jquery\src\var\strundefined.js" />
+    <Content Include="Frontend\lib\jquery\src\var\support.js" />
+    <Content Include="Frontend\lib\jquery\src\var\toString.js" />
+    <Content Include="Frontend\lib\jquery\src\wrap.js" />
+    <Content Include="Frontend\public\base\typography.css" />
+    <Content Include="Frontend\public\base\typogrophy.css" />
+    <Content Include="Frontend\public\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Frontend\public\mixins\typography.css" />
+    <Content Include="Frontend\public\site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\GeoLiteCity.dat" />
+    <Content Include="Configs\baf.config" />
+    <Content Include="Configs\baf.data.manager.config" />
+    <Content Include="Configs\baf.data.metaobject.config" />
+    <Content Include="Configs\baf.library.folders.config" />
+    <Content Include="Configs\ecf.app.config" />
+    <Content Include="Configs\ecf.asset.config" />
+    <Content Include="Configs\ecf.catalog.config" />
+    <Content Include="Configs\ecf.cms.config" />
+    <Content Include="Configs\ecf.customer.config" />
+    <Content Include="Configs\ecf.customization.config" />
+    <Content Include="Configs\ecf.marketing.config" />
+    <Content Include="Configs\ecf.order.config" />
+    <Content Include="Configs\ecf.security.config" />
+    <Content Include="Configs\ecf.ssl.config" />
+    <Content Include="Configs\ecf.workflow.config" />
+    <Content Include="Configs\Mediachase.Search.config" />
+    <None Include="EPiServerLog.config" />
+    <Content Include="packages.config" />
+    <Content Include="modules\_protected\EPiServer.Packaging.UI\web.config" />
+    <Content Include="modules\_protected\EPiServer.Packaging.UI\EPiServer.Packaging.UI.zip" />
+    <Content Include="modules\_protected\Shell\web.config" />
+    <Content Include="modules\_protected\Shell\Shell.zip" />
+    <Content Include="modules\_protected\CMS\web.config" />
+    <Content Include="modules\_protected\CMS\CMS.zip" />
+    <Content Include="modules\_protected\EPiServer.Commerce.Shell\EPiServer.Commerce.Shell.zip" />
+    <Content Include="modules\_protected\Commerce\Commerce.zip" />
+    <Content Include="modules\_protected\EPiServer.Commerce.Shell.ManagerIntegration\EPiServer.Commerce.Shell.ManagerIntegration.zip" />
+    <Content Include="Frontend\.bowerrc" />
+    <Content Include="Frontend\bower.json" />
+    <Content Include="Frontend\lib\bootstrap-sass\.bower.json" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_alerts.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_center-block.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_forms.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_grid.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_image.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_labels.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_opacity.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_panels.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_resize.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_size.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_alerts.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_badges.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_breadcrumbs.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_button-groups.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_buttons.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_carousel.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_close.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_code.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_component-animations.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_dropdowns.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_forms.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_glyphicons.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_grid.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_input-groups.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_jumbotron.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_labels.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_list-group.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_media.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_mixins.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_modals.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_navbar.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_navs.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_normalize.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_pager.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_pagination.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_panels.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_popovers.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_print.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_progress-bars.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_responsive-embed.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_responsive-utilities.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_scaffolding.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_tables.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_theme.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_thumbnails.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_tooltip.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_type.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_utilities.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_variables.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\bootstrap\_wells.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\_bootstrap-compass.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\_bootstrap-mincer.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\_bootstrap-sprockets.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\assets\stylesheets\_bootstrap.scss" />
+    <Content Include="Frontend\lib\bootstrap-sass\bower.json" />
+    <Content Include="Frontend\lib\bootstrap-sass\CHANGELOG.md" />
+    <Content Include="Frontend\lib\bootstrap-sass\composer.json" />
+    <Content Include="Frontend\lib\bootstrap-sass\CONTRIBUTING.md" />
+    <Content Include="Frontend\lib\bootstrap-sass\LICENSE" />
+    <Content Include="Frontend\lib\bootstrap-sass\package.json" />
+    <Content Include="Frontend\lib\bootstrap-sass\README.md" />
+    <Content Include="Frontend\lib\bootstrap-sass\sache.json" />
+    <Content Include="Frontend\lib\jquery\.bower.json" />
+    <Content Include="Frontend\lib\jquery\bower.json" />
+    <Content Include="Frontend\lib\jquery\dist\jquery.min.map" />
+    <Content Include="Frontend\lib\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="Frontend\package.json" />
+    <Content Include="Frontend\public\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Frontend\public\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Frontend\public\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Frontend\public\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Frontend\scss\base\_scaffolding.scss" />
+    <Content Include="Frontend\scss\base\_vendor-overrides.scss" />
+    <Content Include="Frontend\scss\compotents\_cart.scss" />
+    <Content Include="Frontend\scss\compotents\_catalog-browser.scss" />
+    <Content Include="Frontend\scss\compotents\_product-details.scss" />
+    <Content Include="Frontend\scss\mixins\_typography.scss" />
+    <Content Include="Frontend\scss\site.scss" />
+    <Content Include="Views\StartPage\Index.cshtml" />
+    <Content Include="Views\Shared\_SiteLayout.cshtml" />
+    <Content Include="Views\_viewstart.cshtml" />
+    <Content Include="Views\ShopEntryPage\Index.cshtml" />
+    <Content Include="Views\Catalog\Index.cshtml" />
+    <Content Include="Views\CatalogNode\Index.cshtml" />
+    <Content Include="Views\CatalogVariation\Index.cshtml" />
+    <Content Include="Views\CartPage\Index.cshtml" />
+    <Content Include="Views\CheckoutPage\Index.cshtml" />
+    <Content Include="Views\ConfirmationPage\Index.cshtml" />
+    <Content Include="Frontend\scss\compotents\_checkout.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2589</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:15000/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,85 @@
+﻿@using Ascend15.Extensions
+@using Mediachase.Commerce.Orders
+@model Ascend15.Models.ViewModels.CheckoutViewModel
+
+<div class="cart checkout">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Sum</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model.Cart.OrderForms != null && Model.Cart.OrderForms.Any())
+            {
+                foreach (LineItem line in Model.Cart.OrderForms.First().LineItems)
+                {
+                    var variant = line.Code.GetVariationByCode();
+                    <tr>
+                        <td>
+                            <a href="@variant.GetUrl()">@variant.Name</a>
+                        </td>
+                        <td>@line.Quantity.ToString("####")</td>
+                        <td>@line.PlacedPrice.ToString("F") @Model.Cart.BillingCurrency</td>
+                        <td>@line.ExtendedPrice.ToString("F") @Model.Cart.BillingCurrency</td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="cart-subtotal pull-right">
+        Subtotal: @Model.Cart.SubTotal.ToString("F") @Model.Cart.BillingCurrency
+    </div>
+    <div class="clearfix"></div>
+    <div class="cart-shipping pull-right">
+        Shipping: @Model.Cart.ShippingTotal.ToString("F") @Model.Cart.BillingCurrency
+    </div>
+    <div class="clearfix"></div>
+    <div class="cart-total pull-right">
+        Total: @Model.Cart.Total.ToString("F") @Model.Cart.BillingCurrency
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row methods">
+        <div class="col-sm-6 shipping-methods panel panel-default">
+            <div class="title text-center">How to deliver?</div>
+            <ul>
+                @foreach (var rate in Model.ShipmentMethods)
+                {
+                    <li class="col-sm-6">
+                        <form action="@CheckoutPage.GetUrl()/UpdateShipping" method="POST">
+                            @Html.Hidden("shippingMethodId", rate.Id)
+                            <input type="submit" class="btn btn-lg btn-default btn-block" @(Model.SelectedShippingMethod == rate.Id ? "disabled=\"disabled\"" : "") value="@rate.Name (@rate.Money.Amount.ToString("F"))"/>
+                        </form>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-sm-6 payment-methods panel panel-default">
+            <div class="title text-center">How will you pay?</div>
+            <ul>
+                @foreach (var paymentMethod in Model.PaymentMethods)
+                {
+                    <li class="col-sm-6">
+                        <form action="@CheckoutPage.GetUrl()/UpdatePayment" method="POST">
+                            @Html.Hidden("paymentMethodId", paymentMethod.PaymentMethodId)
+                            <input type="submit" class="btn btn-lg btn-default btn-block" value="@paymentMethod.Name" @(Model.SelectedPaymentMethod == paymentMethod.PaymentMethodId ? "disabled=\"disabled\"" : "")/>
+                        </form>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <form action="@CheckoutPage.GetUrl()/PlaceOrder" method="POST">
+        <input type="submit" class="btn btn-lg btn-default btn-block btn-success" value="Purchase !" @(Model.SelectedShippingMethod == Guid.Empty || Model.SelectedPaymentMethod == Guid.Empty ? "disabled=\"disabled\"" : string.Empty)/>
+    </form>
+
+</div>

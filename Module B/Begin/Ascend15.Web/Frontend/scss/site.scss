@@ -1,0 +1,12 @@
+﻿@import "bootstrap";
+@import "bootstrap/theme";
+
+@import "mixins/_typography";
+@import "base/_scaffolding";
+
+@import "compotents/_catalog-browser";
+@import "compotents/_product-details";
+@import "compotents/_cart";
+@import "compotents/_checkout";
+
+@import "base/_vendor-overrides";

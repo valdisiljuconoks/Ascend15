@@ -1,0 +1,58 @@
+﻿@using Ascend15.Extensions
+@using Mediachase.Commerce.Orders
+@model Ascend15.Models.ViewModels.CartPageViewModel
+
+<div class="cart">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Sum</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model.Cart.OrderForms != null && Model.Cart.OrderForms.Any())
+            {
+                foreach (LineItem line in Model.Cart.OrderForms.First().LineItems)
+                {
+                    var variant = line.Code.GetVariationByCode();
+                    <tr>
+                        <td>
+                            <a href="@variant.GetUrl()">@variant.Name</a>
+                        </td>
+                        <td>@line.Quantity.ToString("####")</td>
+                        <td>@line.PlacedPrice.ToString("F") @Model.Cart.BillingCurrency</td>
+                        <td>@line.ExtendedPrice.ToString("F") @Model.Cart.BillingCurrency</td>
+                        <td>
+                            <form action="@CartPage.GetUrl()/Remove" method="POST">
+                                @Html.Hidden("code", line.Code)
+                                <button class="close">x</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="cart-total pull-right">
+        Total: @Model.Cart.Total.ToString("F")
+        <div class="cart-total-currency">@Model.Cart.BillingCurrency</div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="cart-actions">
+        <div class="pull-left">
+            <a href="@ShopEntryPage.GetUrl()" class="btn btn-lg btn-default" role="button">Back to shopping</a>
+        </div>
+        <div class="pull-right">
+            <a href="@CheckoutPage.GetUrl()" class="btn btn-lg btn-default btn-success">Check-out &gt;</a>
+        </div>
+    </div>
+</div>

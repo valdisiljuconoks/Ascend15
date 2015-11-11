@@ -1,0 +1,37 @@
+﻿.product-details
+{
+    max-width: 500px;
+    margin: 0 auto;
+
+    .product-details-image {
+        margin-bottom: 25px;
+
+        img {
+            max-width: 500px;
+        }
+    }
+
+    .product-details-price {
+        @include font-size(10);
+        margin-bottom: 25px;
+
+        .product-details-price-currency {
+            display: inline;
+            @include font-size(2);
+        }
+    }
+
+    .variation-list {
+        margin-bottom: 25px;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: inline;
+        }
+
+        .selected-variation {
+            border: 1px solid black;
+        }
+    }
+}

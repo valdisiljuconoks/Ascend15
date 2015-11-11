@@ -1,0 +1,23 @@
+.catalog-browser {
+  margin-top: 150px; }
+  .catalog-browser .catalog-browser-item:hover {
+    /*border: solid 1px;
+            border-color: gray;*/ }
+  .catalog-browser .catalog-browser-item img {
+    margin: 0 auto; }
+  .catalog-browser .catalog-title {
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none; }
+
+.category-browser {
+  margin-top: 150px; }
+  .category-browser .category-browser-item {
+    margin-bottom: 50px; }
+    .category-browser .category-browser-item:hover {
+      /*border: solid 1px;
+            border-color: gray;*/ }
+    .category-browser .category-browser-item img {
+      margin: 0 auto; }
+  .category-browser .category-title {
+    font-size: 28px; }

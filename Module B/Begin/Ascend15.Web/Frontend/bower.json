@@ -1,0 +1,26 @@
+{
+    "name": "Ascend Frontend",
+    "version": "0.1.0",
+    "authors": [
+        "Geta As"
+    ],
+    "description": "Frontend resources for Ascend '15 workshop",
+    "main": "main.js",
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "lib",
+        "tests"
+    ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "jquery": "~2.1.4"
+  },
+    "resolutions": {
+        "jquery": "~2.1.4"
+    }
+}
