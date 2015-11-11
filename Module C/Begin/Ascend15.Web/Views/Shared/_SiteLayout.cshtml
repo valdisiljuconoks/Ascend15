@@ -1,0 +1,36 @@
+﻿@using System.Web.Optimization
+@using Ascend15.Extensions
+@using Mediachase.Commerce.Customers
+
+<html>
+<head>
+    @Styles.Render("~/frontend/content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>@CurrentPage.Name</title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#ascend-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@ShopEntryPage.GetUrl()" class="navbar-brand">Browse our catalogs</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="ascend-navbar">
+                <p class="navbar-text navbar-right">@(CustomerContext.Current.CurrentContactName == string.Empty ? "Well, hello there!" : "Are you " + CustomerContext.Current.CurrentContactName + "?!") | <a href="@CartPage.GetUrl()" class="navbar-link">Your cart</a></p>
+            </div>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+    @Scripts.Render("~/bundles/libraries")
+</body>
+</html>

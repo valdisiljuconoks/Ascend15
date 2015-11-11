@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "description": "",
+  "scripts": {},
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "gulp-sass": "~2.0.4",
+    "gulp": "~3.9.0",
+    "gulp-notify": "~2.2.0"
+  }
+}

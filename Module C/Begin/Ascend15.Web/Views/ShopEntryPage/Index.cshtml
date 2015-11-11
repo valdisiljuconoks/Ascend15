@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Ascend15.Models.Domain.NameAndLinkPair>
+
+<ul class="catalog-browser row">
+    @foreach (var catalog in Model)
+    {
+        <li class="col-sm-4 text-center">
+            <a href="@catalog.Url" class="catalog-title">
+                <img src="/Frontend/assets/catalogs/cover-images/@(catalog.Name.ToLower()).png" class="img-responsive"/>
+                &gt;&nbsp;@catalog.Name
+            </a>
+        </li>
+    }
+</ul>

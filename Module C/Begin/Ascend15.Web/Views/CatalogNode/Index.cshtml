@@ -1,0 +1,33 @@
+﻿@using Ascend15.Extensions
+@model Ascend15.Models.ViewModels.CatalogNodeViewModel
+
+<div>
+    @if (!Model.Nodes.IsNullOrEmpty())
+    {
+        <ul class="category-browser center-block">
+            @foreach (var categories in Model.Nodes)
+            {
+                <li class="col-sm-2 text-center">
+                    <a href="@categories.Url" class="category-title">
+                        <img src="@categories.ImageUrl" class="img-responsive"/>
+                        @categories.Name
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+</div>
+
+<div>
+    <ul class="product-browser center-block">
+        @foreach (var node in Model.Products)
+        {
+        <li class="col-sm-3 text-center product-browser-item">
+            <a href="@node.Url" class="product-title">
+                <img src="@node.ImageUrl" class="img-responsive"/>
+                @node.Name
+            </a>
+        </li>
+        }
+    </ul>
+</div>

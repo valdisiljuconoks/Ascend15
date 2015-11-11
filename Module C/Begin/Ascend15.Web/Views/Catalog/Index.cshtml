@@ -1,0 +1,15 @@
+﻿@model Ascend15.Models.ViewModels.CatalogViewModel
+
+<div class="category-browser row">
+    @foreach (var catalog in Model.Nodes)
+    {
+        <div class="col-md-4 category-browser-item">
+            <div class="center-block text-center">
+                <a href="@catalog.Url" class="category-title">
+                    <img src="@catalog.ImageUrl" class="img-responsive"/>
+                    @catalog.Name
+                </a>
+            </div>
+        </div>
+    }
+</div>
