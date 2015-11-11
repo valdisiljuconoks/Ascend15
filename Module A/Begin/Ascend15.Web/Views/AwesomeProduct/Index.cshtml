@@ -1,0 +1,6 @@
+﻿@model Ascend15.Controllers.AwesomeProductViewModel
+
+@foreach (var variation in Model.Variations)
+{
+    <div>@variation.Name (Color: @variation.Color)</div>
+}

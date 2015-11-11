@@ -1,0 +1,7 @@
+﻿@using Ascend15.Extensions
+@model Ascend15.Controllers.AwesomeNodeViewModel
+
+@foreach (var product in Model.Products)
+{
+    <div><a href="@product.GetUrl()">@product.Name</a></div>
+}

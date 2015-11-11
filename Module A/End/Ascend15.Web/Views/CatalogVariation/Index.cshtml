@@ -1,0 +1,34 @@
+﻿@using Ascend15.Extensions
+@model Ascend15.Models.ViewModels.CatalogVariationViewModel
+
+<div class="product-details text-center">
+    <div class="product-details-image">
+        <img src="@Model.ImageUrl" alt="" class="img-responsive"/>
+    </div>
+    <div class="product-details-price">
+        @Model.Price
+        <div class="product-details-price-currency">@Model.Currency</div>
+    </div>
+
+    <div>
+        @Html.PropertyFor(m => m.Content.MainBody)
+    </div>
+    <div>
+        <ul class="variation-list">
+            @foreach (var color in Model.Colors)
+            {
+                <li>
+                    <a href="@color.Url">
+                        <img src="@color.ImageThumbnailUrl" alt="@color.Name" title="@color.Name" class="img-circle @(color.Name == Model.Content.Color ? "selected-variation" : string.Empty)"/>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <form action="@CartPage.GetUrl()/Add" method="POST">
+        <input type="submit" value="Add to cart" class="btn btn-lg btn-default" />
+        @Html.Hidden("code", Model.Content.Code)
+        @Html.Hidden("returnUrl", Request.RawUrl)
+    </form>
+</div>

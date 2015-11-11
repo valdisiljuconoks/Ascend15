@@ -1,0 +1,9 @@
+﻿@using Ascend15.Extensions
+@model Ascend15.Controllers.CatalogContentViewModel
+
+@foreach (var category in Model.Categories)
+{
+    <div>
+        <a href="@category.GetUrl()">@category.Name</a>
+    </div>
+}

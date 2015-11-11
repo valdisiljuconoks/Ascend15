@@ -1,0 +1,9 @@
+﻿@using Ascend15.Extensions
+@model Ascend15.Controllers.ShopEntryPageViewModel
+
+<h2>Shop Entry</h2>
+
+@foreach (var catalog in Model.Catalogs)
+{
+    <div><a href="@catalog.GetUrl()">@catalog.Name</a></div>
+}
